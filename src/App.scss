@@ -1,0 +1,17 @@
+.header {
+  background-color: rgba(0, 0, 0, 0.8);
+  .header-list {
+    display: flex;
+  }
+  .header-item {
+    list-style: none;
+    line-height: 30px;
+    padding: 0px 20px;
+    color: #ffffff;
+    font-size: 12px;
+    text-decoration: none;
+    &.active {
+      color: blue;
+    }
+  }
+}
