@@ -45,7 +45,7 @@ const Home =  ({navigation, todos}: ReduxType) => {
     <View style={styles.container}>
       <AddTodoInput />
       {todos.map((todo, index) => <TodoItem key={index} {...todo} id={index} />)}
-      <TouchableOpacity style={styles.botBtn} activeOpacity={0.7} onPress={() => navigation.navigate('Detail', {id: '123'})}>
+      <TouchableOpacity style={styles.botBtn} activeOpacity={0.7} onPress={() => navigation.navigate('Hooks')}>
         <Text style={{color: '#fff'}}>跳转</Text>
       </TouchableOpacity>
     </View>

@@ -8,11 +8,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux'
-
-type RootStackList = {
-  Home: undefined;
-  Detail: { id: string };
-};
+import { RootStackList } from '../router/type'
 
 type DetailScreenRouteProp = RouteProp<RootStackList, 'Detail'>
 type DetailNavigationProp = StackNavigationProp<RootStackList, 'Detail'>

@@ -319,4 +319,9 @@ const TodoItem = ({isCompleted, title, deleteTodo, toggleTodo, editTodo}: ReduxT
 export default connect(mapStateToProps, mapDispatchToProps)(TodoItem);
 ```
 
+### 6.hooks深入理解
+
+参考资料： [https://juejin.im/post/6844903985338400782#heading-24](https://juejin.im/post/6844903985338400782#heading-24)
+[https://juejin.im/post/6844903918577664007](https://juejin.im/post/6844903918577664007)
+
 

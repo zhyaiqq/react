@@ -1,4 +1,5 @@
 export type RootStackList = {
   Home: undefined;
-  Detail: { id: String };
+  Detail: { id: string };
+  Hooks: undefined
 };
