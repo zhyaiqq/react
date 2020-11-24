@@ -2,7 +2,7 @@ import React from 'react';
 import {
 
 } from 'antd'
-import CategoryHeader from '../../components/CategoryHeader'
+import CategoryHeader from '@/components/CategoryHeader'
 import Block from './components/block'
 
 export default function Book () {

@@ -6,11 +6,11 @@ import {
   Redirect
 } from "react-router-dom";
 import './App.scss'
-import Home from "./pages/Home"
-import Movie from "./pages/Movie"
-import Book from "./pages/Book"
-import Music from "./pages/Music"
-import Header from './components/Header'
+import Home from "@/pages/Home"
+import Movie from "@/pages/Movie"
+import Book from "@/pages/Book"
+import Music from "@/pages/Music"
+import Header from '@/components/Header'
 
 export default function App () {
   return (
