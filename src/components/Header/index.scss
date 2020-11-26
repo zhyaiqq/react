@@ -1,0 +1,63 @@
+.header {
+  height: 69px;
+  background-color: rgba(0, 0, 0, 0.8);
+  .header-content {
+    display: flex;
+    align-items: center;
+  }
+  .header-logo {
+    width: 176px;
+    height: 69px;
+    // background-image: url('./assets/images/sprite_01.png');
+  }
+  .header-list {
+    flex: 1;
+    height: 100%;
+  }
+  .header-item {
+    display: inline-block;
+    list-style: none;
+    line-height: 69px;
+    padding: 0px 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 12px;
+      height: 7px;
+      background-image: url('../../assets/images/sprite_01.png');
+      background-position: 254px 0;
+    }
+    &.active, &:hover {
+      color: #fff;
+      background-color: rgba(0, 0, 0, 1);
+    }
+    :last-of-type {
+      ::after {
+        position: absolute;
+        content: '';
+        width: 28px;
+        height: 19px;
+        background-image: url('../../assets/images/sprite_01.png');
+        background-position: -192px 0;
+        top: 20px;
+        right: -20px;
+      }
+    }
+   }
+  .header_right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .ant-input-affix-wrapper {
+      width: 120px;
+      border-radius: 10px;
+      margin-right: 15px;
+    }
+  }
+}

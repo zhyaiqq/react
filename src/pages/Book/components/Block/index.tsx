@@ -4,6 +4,7 @@ import {
 	Card
 } from 'antd'
 import { RightCircleOutlined, LeftCircleOutlined } from '@ant-design/icons'
+import './index.scss'
 
 const { Meta } = Card;
 const Block = () => {

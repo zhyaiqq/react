@@ -3,7 +3,7 @@ import {
 
 } from 'antd'
 import CategoryHeader from '@/components/CategoryHeader'
-import Block from './components/block'
+import Block from './components/Block'
 
 export default function Book () {
   const cates = [

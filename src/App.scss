@@ -1,17 +1,26 @@
-.header {
-  background-color: rgba(0, 0, 0, 0.8);
-  .header-list {
-    display: flex;
-  }
-  .header-item {
-    list-style: none;
-    line-height: 30px;
-    padding: 0px 20px;
-    color: #ffffff;
-    font-size: 12px;
-    text-decoration: none;
-    &.active {
-      color: blue;
-    }
-  }
+/* 全局样式 */
+body,
+textarea,
+select,
+input,
+button {
+  font-size: 12px;
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.w1100 {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.w980 {
+  width: 980px;
+  margin: 0 auto;
 }

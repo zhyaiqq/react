@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { memo } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,20 +11,28 @@ import Movie from "@/pages/Movie"
 import Book from "@/pages/Book"
 import Music from "@/pages/Music"
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import store from '@/store'
+import { Provider } from 'react-redux'
 
-export default function App () {
+function App () {
   return (
-    <div className="container">
-      <Router>
-        <Header />
-        <Switch>
-          <Route path="/home" component={Home} />
-          <Route path="/book" component={Book} />
-          <Route path="/movie" component={Movie} />
-          <Route path="/music" component={Music} />
-          <Redirect from='/' to='/home' />
-        </Switch>
-      </Router> 
-    </div>
+    <Provider store={store}>
+      <div className="container">
+        <Router>
+          <Header />
+          <Switch>
+            <Route path="/home" component={Home} />
+            <Route path="/discover" component={Book} />
+            <Route path="/friend" component={Movie} />
+            <Route path="/mine" component={Music} />
+            <Redirect from='/' to='/home' />
+          </Switch>
+          <Footer />
+        </Router> 
+      </div>
+    </Provider>
   )
 }
+
+export default memo(App)

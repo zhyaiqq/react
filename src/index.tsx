@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assets/styles/common.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
 // import store from './store'
 import 'antd/dist/antd.css';
-import './assets/styles/index.scss'
+import '@/assets/styles/reset.scss'
 
 ReactDOM.render(
   <App />,

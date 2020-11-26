@@ -5,6 +5,7 @@ import {
   Input,
   Button
 } from 'antd'
+import './index.scss'
 const { Search } = Input
 
 interface ICATE {
