@@ -17,7 +17,6 @@ function Header () {
   const [ value, setValue ] = useState('')
   const [ fetching, setFetching ] = useState(false)
   const result: any = useSelector(state => state)
-  console.log('sate', result.searchSongList)
 
   const handleChange = (text: string) => {
     console.log('change')
@@ -34,12 +33,14 @@ function Header () {
   return (
     // const options = this.state.data.map(d => <Option key={d.value}>{d.text}</Option>)
     <div className="header">
-      <div className="header-content w1100">
-        <h1 className="header-logo"></h1>
-        <ul className="header-list">
+      <div className="header-content w1100 clearfix">
+        <h1 className="fl">
+          <a href="/" className="header-logo"></a>
+        </h1>
+        <div className="header-list fl">
           {headerLinks.map((tab, i) => <NavLink className='header-item' activeClassName='active' to={tab.link} key={i}>{tab['title']}</NavLink>)}
-        </ul>
-        <div className="header_right">
+        </div>
+        <div className="header_right fr">
           <Select
             mode="multiple"
             labelInValue
@@ -49,7 +50,7 @@ function Header () {
             filterOption={false}
             onSearch={handleSearch}
             onChange={handleChange}
-            style={{ width: '100%' }}
+            style={{ width: '150px' }}
           >
             {/* {data.map(d => (
               <Option key={d.value}>{d.text}</Option>

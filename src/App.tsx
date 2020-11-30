@@ -7,9 +7,9 @@ import {
 } from "react-router-dom";
 import './App.scss'
 import Home from "@/pages/Home"
-import Movie from "@/pages/Movie"
-import Book from "@/pages/Book"
-import Music from "@/pages/Music"
+import Friend from "@/pages/Friend"
+import Mine from "@/pages/Mine"
+import Discover from "@/pages/Discover"
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import store from '@/store'
@@ -22,11 +22,11 @@ function App () {
         <Router>
           <Header />
           <Switch>
-            <Route path="/home" component={Home} />
-            <Route path="/discover" component={Book} />
-            <Route path="/friend" component={Movie} />
-            <Route path="/mine" component={Music} />
-            <Redirect from='/' to='/home' />
+            {/* <Route path="/home" component={Home} /> */}
+            <Route path="/discover" component={Discover} />
+            <Route path="/friend" component={Friend} />
+            <Route path="/mine" component={Mine} />
+            <Redirect from='/' to='/discover' />
           </Switch>
           <Footer />
         </Router> 

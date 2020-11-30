@@ -24,3 +24,23 @@ button {
   width: 980px;
   margin: 0 auto;
 }
+.inline-block {
+  display: inline-block;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";    /*不用有内容也可以*/
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}

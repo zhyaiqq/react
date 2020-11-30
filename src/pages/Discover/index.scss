@@ -1,0 +1,25 @@
+.discover {
+  width: 100%;
+  height: 200px;
+  .menu {
+    width: 100%;
+    height: 35px;
+    background-color: #c20c0c;
+    overflow: hidden;
+    .menu-list {
+      padding-left: 190px;
+    }
+    a {
+      display: inline-block;
+      padding: 0 13px;
+      margin: 8px 17px 0;
+      border-radius: 20px;
+      color: #fff;
+      &:hover,
+      &.menu-active {
+        text-decoration: none;
+        background-color: #9b0909;
+      }
+    }
+  }
+}
