@@ -18,16 +18,18 @@ import { Provider } from 'react-redux'
 function App () {
   return (
     <Provider store={store}>
-      <div className="container">
+      <div className="container" style={{width: '100%', height: '100%', display: 'flex', flexDirection: 'column'}}>
         <Router>
           <Header />
-          <Switch>
-            {/* <Route path="/home" component={Home} /> */}
-            <Route path="/discover" component={Discover} />
-            <Route path="/friend" component={Friend} />
-            <Route path="/mine" component={Mine} />
-            <Redirect from='/' to='/discover' />
-          </Switch>
+          <div className="main" style={{flex: 1}}>
+            <Switch>
+              {/* <Route path="/home" component={Home} /> */}
+              <Route path="/discover" component={Discover} />
+              <Route path="/friend" component={Friend} />
+              <Route path="/mine" component={Mine} />
+              <Redirect from='/' to='/discover' />
+            </Switch>
+          </div>
           <Footer />
         </Router> 
       </div>
