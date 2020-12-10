@@ -3,5 +3,5 @@ export interface IdefaultState {
 }
 
 export interface IsearchSongList {
-  title: string
+  name: string
 }

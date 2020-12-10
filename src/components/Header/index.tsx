@@ -2,39 +2,41 @@ import React, { memo, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { headerLinks } from '@/assets/local-data'
 import { Select, Button, Spin } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
-import debounce from 'lodash/debounce';
 import './index.scss'
 import {
   getSearchSongListAction
 } from './store/actions'
 import { useDispatch, useSelector } from 'react-redux';
-import { IdefaultState } from './store/interface'
+import { IdefaultState, IsearchSongList } from './store/interface'
+import { useRouteMatch } from 'react-router-dom'
 const { Option } = Select;
 
-function Header () {
+function Header (props: any) {
   const dispatch = useDispatch()
   const [ value, setValue ] = useState('')
   const [ fetching, setFetching ] = useState(false)
-  const result: any = useSelector(state => state)
+  const { searchSongList } = useSelector((state:any) => state)
 
   const handleChange = (text: string) => {
     console.log('change')
     setValue(text)
-    console.log('2222')
   }
 
   const handleSearch = (text: string) => {
-    console.log('search', text)
     // 发起网络请求
     dispatch(getSearchSongListAction(text))
   }
 
+  let match = useRouteMatch({
+    path: '/discover',
+    strict: true,
+    sensitive: true
+  })
+
   return (
-    // const options = this.state.data.map(d => <Option key={d.value}>{d.text}</Option>)
     <div className="header">
       <div className="header-content w1100 clearfix">
-        <h1 className="fl">
+        <h1 className="fl" style={{fontSize: 0}}>
           <a href="/" className="header-logo"></a>
         </h1>
         <div className="header-list fl">
@@ -42,8 +44,7 @@ function Header () {
         </div>
         <div className="header_right fr">
           <Select
-            mode="multiple"
-            labelInValue
+            showSearch
             value={value}
             placeholder="Select users"
             notFoundContent={fetching ? <Spin size="small" /> : null}
@@ -52,14 +53,15 @@ function Header () {
             onChange={handleChange}
             style={{ width: '150px' }}
           >
-            {/* {data.map(d => (
-              <Option key={d.value}>{d.text}</Option>
-            ))} */}
+            {searchSongList && searchSongList.map((song: IsearchSongList, index: number) => (
+              <Option value={song.name} key={index}>{song.name}</Option>
+            ))}
           </Select>
-          <Button shape="round" size="small">创作中心</Button>
-          <Button type="text" size="small">登录</Button>
+          <Button shape="round" size="small" className="btn-author">创作者中心</Button>
+          <Button type="text" size="small" className="btn-logo">登录</Button>
         </div>
       </div>
+      { !match && <div className="bg-line"></div> }
     </div>
   )
 }

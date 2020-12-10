@@ -1,0 +1,43 @@
+.banner-wrap {
+  width: 100%;
+  height: 270px;
+  .banner {
+    height: 100%;
+    position: relative;
+    .left {
+      display: inline-block;
+      width: 730px;
+      height: 100%;
+    }
+    .right {
+      display: inline-block;
+      width: 250px;
+      height: 100%;
+      background: url('../../../../../../assets/images/download.png')
+    }
+    .ctrl {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      .btn {
+        position: absolute;
+        width: 37px;
+        height: 63px;
+        background-image: url('../../../../../../assets/images/banner_sprite.png');
+        background-color: transparent;
+        cursor: pointer;
+      }
+      .btn:nth-child(1) {
+        left: -60px;
+        background-position: 0 -360px;
+      }
+      .btn:nth-child(2) {
+        right: -60px;
+        background-position: 0 -508px;
+      }
+      .btn:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}

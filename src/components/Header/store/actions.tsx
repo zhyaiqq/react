@@ -14,7 +14,7 @@ const changeSearchSongListAction = (songList: any) => ({
 
 // 搜索歌曲
 export const getSearchSongListAction = (searchStr: any, limit = 6, type = 1) => {
-  return () => {
+  return (dispatch: any) => {
     axios({
       url: '/search',
       params: {
@@ -22,9 +22,10 @@ export const getSearchSongListAction = (searchStr: any, limit = 6, type = 1) => 
         limit,
         type
       }
-    }).then(res => {
+    }).then((res: any) => {
+      if (res.code === 200)
       console.log('请求结果', res)
-      // dispatch(changeSearchSongListAction(res.result.songs));
+      dispatch(changeSearchSongListAction(res.result.songs));
     })
   }
 }

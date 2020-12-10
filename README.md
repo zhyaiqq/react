@@ -23,3 +23,10 @@ alias: {
   "@/*": ["./src/*"]
 }
 ```
+
+## 首页Header头组件
+`src/components/Header`文件里面封装了头部组件，里面用到了`useRouteMatch`这个钩子，匹配当前路径做一些判断，第一次用这个，详细见代码
+
+
+## 推荐页中轮播组件TopBanner
+`src\pages\Discover\child-pages\recommend\components\top-banners`文件中存在一个问题：调用ant ui的轮播图切换的方法，由于使用的typescript，一直找不到`next` `pre`方法（待解决）t
