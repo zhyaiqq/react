@@ -1,23 +1,29 @@
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { IBanner, IRecommendState } from '../../store/types'
-import {
-  getTopBannersAction
-} from '../../store/actionCreator'
+import { AppState } from '@/store'
+import { IBanner } from '@/store/modules/recommend/types'
+import { changeTopBannerAction } from '@/store/modules/recommend/actions'
+import * as api from '@/api/recommend'
 import './index.scss'
 import { Carousel, Button } from 'antd'
+import { result } from 'lodash'
 
 function TopBanners () {
   // 组件内state
   const [ currentIndex, setCurrentIndex ] = useState(0)
 
   const dispatch = useDispatch()
-  let { topBanners }= useSelector((state: any) => {
-    return state.recommend
-  })
+  const topBanners: Array<IBanner> = useSelector((state: AppState) => state.recommend.topBanners)
   useEffect(() => {
     // 在组件渲染之后发送网络请求
-    dispatch(getTopBannersAction())
+    const [request, canceler] = api.getTopBanners()
+    request.then(result => {
+      const { banners } = result.data
+      dispatch(changeTopBannerAction(banners))
+    })
+    return () => {
+      canceler && canceler();
+    }
   }, [dispatch])
 
   const bannerRef = useRef(null)

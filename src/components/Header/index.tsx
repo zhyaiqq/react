@@ -3,11 +3,11 @@ import { NavLink } from 'react-router-dom'
 import { headerLinks } from '@/assets/local-data'
 import { Select, Button, Spin } from 'antd';
 import './index.scss'
-import {
-  getSearchSongListAction
-} from './store/actions'
+import { AppState } from '@/store'
+import { changeSearchSongListAction } from '@/store/modules/header/actions'
+import { ISongItem } from '@/store/modules/header/types'
+import * as api from '@/api/header'
 import { useDispatch, useSelector } from 'react-redux';
-import { IdefaultState, IsearchSongList } from './store/interface'
 import { useRouteMatch } from 'react-router-dom'
 const { Option } = Select;
 
@@ -15,16 +15,15 @@ function Header (props: any) {
   const dispatch = useDispatch()
   const [ value, setValue ] = useState('')
   const [ fetching, setFetching ] = useState(false)
-  const { searchSongList } = useSelector((state:any) => state)
+  const searchSongList: Array<ISongItem> = useSelector((state: AppState) => state.header.searchSongs)
 
-  const handleChange = (text: string) => {
-    console.log('change')
-    setValue(text)
-  }
+  const handleChange = (text: string) => setValue(text)
 
   const handleSearch = (text: string) => {
-    // 发起网络请求
-    dispatch(getSearchSongListAction(text))
+    const [request, canceler ] = api.searchSongList(text)
+    request.then(result => {
+      dispatch(changeSearchSongListAction(result.data.result.songs))
+    })
   }
 
   let match = useRouteMatch({
@@ -53,7 +52,7 @@ function Header (props: any) {
             onChange={handleChange}
             style={{ width: '150px' }}
           >
-            {searchSongList && searchSongList.map((song: IsearchSongList, index: number) => (
+            {searchSongList && searchSongList.map((song: ISongItem, index: number) => (
               <Option value={song.name} key={index}>{song.name}</Option>
             ))}
           </Select>
