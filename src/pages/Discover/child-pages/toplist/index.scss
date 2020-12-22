@@ -1,0 +1,70 @@
+.rank-side {
+  display: inline-block;
+  width: 240px;
+  background-color: rgb(249, 249, 249);
+  .side-item {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    &.active {
+      background-color: rgb(230, 230, 230);
+    }
+    .descript {
+      display: grid;
+      .name { color: #000 }
+      .tip { color: rgb(153, 153, 153) }
+    }
+  }
+}
+
+.rank-cn {
+  display: inline-block;
+  width: 740px;
+  vertical-align: top;
+  .introduce {
+    display: grid;
+    grid-template-columns: 160px auto;
+    padding: 10px 40px;
+    .introduce-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .name {
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+      .btn-wrapper {
+        margin-top: 10px;
+      }
+    }
+  }
+  .song-wrapper {
+    padding: 10px 40px;
+    .title-wrapper {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      border-bottom: 2px solid #f00;
+      padding-right: 20px;
+      .title {
+        font-size: 18px;
+      }
+      i {
+        font-style: normal;
+        color: #f00;
+      }
+    }
+    .table-body {
+      border: 1px solid rgb(217, 217, 217);
+      .table-row {
+        display: grid;
+        grid-template-columns: 90px 1fr 90px 1fr;
+        gap: 10px;
+        place-items: center;
+        padding: 10px 0;
+      }
+    }
+  }
+}
