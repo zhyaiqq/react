@@ -1,0 +1,124 @@
+.recommend-left {
+  display: inline-block;
+  width: 730px;
+  height: 100%;
+  .hot-cn {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    // flex-wrap: wrap;
+    // justify-content: space-between;
+    .hot-item {
+      width: 140px;
+      height: 240px;
+      margin-top: 20px;
+      // border: 1px solid #ccc;
+    }
+  }
+  .new-cn {
+    position: relative;
+    background-color: rgb(245, 245, 245);
+    padding: 10px;
+    margin: 20px 0;
+    border:1px solid rgb(211, 211, 211);
+    .new-box {
+      display: grid !important;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      .new-item {
+        width: 100px;
+        font-size: 12px;
+        .name {
+          margin-top: 2px;
+        }
+        .author {
+          margin-top: 5px;
+          color: #999;
+        }
+      }
+    }
+    .ctrl {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      .btn {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        transform: translateY(-12px);
+        background-image: url('../../../../assets/images/sprite_02.png');
+        background-color: transparent;
+        cursor: pointer;
+      }
+      .btn:nth-child(1) {
+        left: 0px;
+        background-position: -261px -76px;
+      }
+      .btn:nth-child(2) {
+        right: 25px;
+        background-position: -294px -76px;
+      }
+    }
+  }
+  .toplist-cn {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #f5f5f5;
+    border: 1px solid rgb(211, 211, 211);
+    margin: 30px 0;
+    .toplist-item {
+      border-left: 1px solid rgb(211, 211, 211);
+      &:nth-child(1) {
+        border: 0;
+      }
+      .introduce {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        place-items: center;
+        padding-right: 20px;
+        margin: 20px 0;
+        h4 {
+          font-size: 16px;
+        }
+      }
+      .list-item {
+        padding: 5px 15px;
+        display: grid;
+        grid-template-columns: 30px 1fr;
+        cursor: pointer;
+        .name {
+          color: #666;
+        }
+      }
+    }
+  }
+}
+.recommend-right {
+  display: inline-block;
+  width: 250px;
+  height: 100%;
+  vertical-align: top;
+  .singer-wrapper {
+    padding: 0 15px;
+    .singer-title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2px 10px;
+      border-bottom: 1px solid rgb(211, 211, 211);
+      margin-bottom: 20px;
+    }
+    .singer-item {
+      padding: 0 15px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border: 1px solid rgb(211, 211, 211);
+      margin-bottom: 20px;
+    }
+    .more {
+      color: #999;
+      cursor: pointer;
+    }
+  }
+}

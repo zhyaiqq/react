@@ -1,0 +1,40 @@
+@import '@/assets/styles/variables.scss';
+
+.cm-block-1 {
+  .top {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 20px;
+    padding-right: 15px;
+    border-bottom: 2px solid $mainColor;
+    .title {
+      padding-left: 30px;
+      background: url('../../../../../../assets/images/sprite_02.png') no-repeat center;
+      background-position: -225px -159px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .keyword-wrapper {
+      display: flex;
+      align-items: center;
+      place-items: center;
+      color: #666;
+      .keyword {
+        cursor: pointer;
+      }
+      .line {
+        display: inline-block;
+        margin: 0 10px;
+        color: #ccc;
+      }
+    }
+    .more {
+      margin: auto;
+      padding-right: 15px;
+      cursor: pointer;
+      color: #666;
+      background: url('../../../../../../assets/images/sprite_02.png') no-repeat;
+      background-position: 28px -237px;
+    }
+  }
+}

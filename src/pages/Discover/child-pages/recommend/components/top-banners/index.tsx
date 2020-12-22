@@ -18,8 +18,8 @@ function TopBanners () {
     // 在组件渲染之后发送网络请求
     const [request, canceler] = api.getTopBanners()
     request.then(result => {
-      const { banners } = result.data
-      dispatch(changeTopBannerAction(banners))
+      // const { banners, code } = result.data
+      // if (code === 200) dispatch(changeTopBannerAction(banners))
     })
     return () => {
       canceler && canceler();

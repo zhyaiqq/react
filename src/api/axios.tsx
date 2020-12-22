@@ -45,7 +45,7 @@ instance.interceptors.response.use(
           return Promise.reject(err);
       }
     }
-    return err
+    return Promise.reject(err);
   }
 )
 
