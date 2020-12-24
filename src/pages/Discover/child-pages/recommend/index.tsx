@@ -1,6 +1,6 @@
 import React, { Fragment, ReactElement, useEffect, useState } from 'react';
 import TopBanners from './components/top-banners'
-import Layout from './components/layout'
+import Layout from '@/components/Layout'
 import './index.scss'
 import { Carousel } from 'antd'
 import { changeHotRecommendSongs, changeNewCDs } from '@/store/modules/recommend/actions'
@@ -8,6 +8,7 @@ import { getHotRecommendSongs, getNewCDs, getTopList, getSingers } from '@/api/r
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '@/store';
 import { ISongItem } from '@/store/modules/recommend/types';
+import { SongItem } from '@/components/SongItem'
 
 interface ITopDetail {
   coverImgUrl: string,
@@ -38,23 +39,12 @@ const Hot = () => {
 
   const { hotRecommendSongs } = useSelector((state: AppState) => state.recommend)
 
-  // 主要内容布局
-  const _renderCnItem = (item: ISongItem, index: number): ReactElement => {
-    return (
-      <div className="hot-item">
-        <img src={item.picUrl} style={{width: '140px', height: '140px' }} />
-        <span>{ item.name }</span>
-        <span>{ item.copywriter }</span>
-      </div>
-    )
-  }
-
   return (
     <Layout
       title="热门推荐"
       keywords={keywords}>
         <div className="hot-cn">
-          { hotRecommendSongs.map((item, index) => _renderCnItem(item, index)) }
+          { hotRecommendSongs.map((item, index) => <SongItem song={item} key={index} />) }
         </div>
     </Layout>
   )

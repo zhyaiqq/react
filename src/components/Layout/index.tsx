@@ -4,7 +4,8 @@ import './index.scss'
 interface IProps {
   title: string,
   keywords?: Array<string>,
-  children?: ReactElement<any>
+  children?: ReactElement<any>,
+  style?: Object | string
 }
 
 const Layout = (props: IProps) => {
@@ -23,7 +24,7 @@ const Layout = (props: IProps) => {
   }
 
   return (
-    <div className="cm-block-1">
+    <div className={['cm-block-1', typeof props.style === 'string' ? props.style : ''].join(' ')} style={typeof props.style === 'object' ? props.style : {}}>
       <div className="top">
         <h2 className="title">{ props.title }</h2>
         { _renderKeywordsCn() }
