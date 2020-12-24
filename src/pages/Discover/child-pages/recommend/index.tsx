@@ -1,4 +1,4 @@
-import React, { Fragment, ReactElement, useEffect, useState } from 'react';
+import React, { Fragment, ReactElement, RefObject, useEffect, useRef, useState } from 'react';
 import TopBanners from './components/top-banners'
 import Layout from '@/components/Layout'
 import './index.scss'
@@ -67,11 +67,12 @@ const NewCD = () => {
   }, [])
 
   const { newCDs } = useSelector((state: AppState) => state.recommend)
+  const carouselRef: RefObject<Carousel> = useRef(null)
 
   // 主要内容布局
   const _renderCnItem = (item: ISongItem, index: number): ReactElement => {
     return (
-      <div className="new-item" key={index}>
+      <div className="new-item" key={index} style={{border: '1px solid #ccc'}}>
         <img src={item.picUrl} style={{width: '100px', height: '100px' }} />
         <div className={['name', 'ellipsis'].join(' ')}>{item.name}</div>
         <div className={['author', 'ellipsis'].join(' ')}>{item.author}</div>
@@ -82,7 +83,7 @@ const NewCD = () => {
   return (
     <Layout title="新碟上架">
       <div className="new-cn">
-        <Carousel afterChange={() => {}} style={{margin: '0 25px'}}>
+        <Carousel ref={carouselRef} afterChange={() => {}} style={{margin: '0 25px'}}>
           <div className="new-box">
             { newCDs.splice(0, 5).map((item, index) => _renderCnItem(item, index))}
           </div>
@@ -91,8 +92,8 @@ const NewCD = () => {
           </div>
         </Carousel>
         <div className="ctrl">
-          <div className="btn" onClick={() => console.log()}></div>
-          <div className="btn" onClick={() => {}}></div>
+          <div className="btn" onClick={() => carouselRef?.current?.prev()}></div>
+          <div className="btn" onClick={() => carouselRef?.current?.next()}></div>
         </div>
       </div>
     </Layout>

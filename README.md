@@ -29,4 +29,15 @@ alias: {
 
 
 ## 推荐页中轮播组件TopBanner
-`src\pages\Discover\child-pages\recommend\components\top-banners`文件中存在一个问题：调用ant ui的轮播图切换的方法，由于使用的typescript，一直找不到`next` `pre`方法（待解决）t
+`src\pages\Discover\child-pages\recommend\components\top-banners`文件中存在一个问题：调用ant ui的轮播图切换的方法，由于使用的typescript，一直找不到`next` `pre`方法（在看到别人写法后，已解决）
+
+这里可以深入去看看`forwardRef` `ForwardRefRenderFunction` `useImperativeHandle` `useRef`，后面自己尝试写一个子组件暴露一些方法，让父组件调用
+
+## react使用本地图片注意
+```
+<img src="../../assets/images/mymusic.png" style={{width: '100%'}}/>
+```
+在我的音乐页面中`src\pages\Mine`写了上面这一段代码，但是图片怎么都不显示，后来才知道create-react-app只支持public文件夹下的图片读取，src下的图片读取需要以下方式：
+```
+<img src={require('../../assets/images/mymusic.png')} style={{width: '100%'}}/>
+```

@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
+import React, { memo, useCallback, useEffect, useRef, useState, RefObject} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '@/store'
 import { IBanner } from '@/store/modules/recommend/types'
@@ -6,7 +6,11 @@ import { changeTopBannerAction } from '@/store/modules/recommend/actions'
 import * as api from '@/api/recommend'
 import './index.scss'
 import { Carousel, Button } from 'antd'
-import { result } from 'lodash'
+
+interface ICarouselHandles {
+  prev (): void;
+  next (): void;
+}
 
 function TopBanners () {
   // 组件内state
@@ -26,7 +30,7 @@ function TopBanners () {
     }
   }, [dispatch])
 
-  const bannerRef = useRef(null)
+  const bannerRef: RefObject<Carousel> = useRef(null)
 
   const bgImage =
     topBanners &&
@@ -47,7 +51,7 @@ function TopBanners () {
         </div>
         <a href="https://music.163.com/#/download" target="_blank" className="right"></a>
         <div className="ctrl">
-          <div className="btn" onClick={() => console.log(bannerRef.current)}></div>
+          <div className="btn" onClick={() => bannerRef?.current?.prev()}></div>
           <div className="btn" onClick={() => {}}></div>
         </div>
       </div>

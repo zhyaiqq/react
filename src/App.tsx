@@ -27,7 +27,7 @@ function App () {
               <Route path="/discover" component={Discover} />
               <Route path="/friend" component={Friend} />
               <Route path="/mine" component={Mine} />
-              <Redirect from='/' to='/discover' />
+              {/* <Redirect from='/' to='/discover' /> */}
             </Switch>
           </div>
           <Footer />
