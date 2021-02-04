@@ -4,6 +4,25 @@ eslint配置['https://blog.csdn.net/song_de/article/details/106102775']
 
 本来想做代码规范的但是试了好久eslint一直不通过，先放弃了，后面在研究
 
+今天又重头来研究下代码检查，在vue项目中成功了
+
+- 安装`npm i --save-dev husky`,这样就可以在`package.json`中配置git hooks了, 看一些项目都是直接在scripts字段加上`"commit-msg": "validate-commit-msg","pre-commit": "npm run lint"`就行了，但是我用的时候commit-msg执行了，但是pre-commit未执行，于是我试了添加husky字段添加下面代码：
+```
+  scripts: {
+    ...
+    "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "validate-commit-msg",
+      "pre-commit": "npm run lint"
+    }
+  },
+```
+- 安装`npm i --save-dev validate-commit-msg`, 对提交代码写的注释风格检查。
+
+- 当然这里还有相关eslint问题，一般初始化项目已经帮我们生成了`.eslintrc`文件和相关配置, 但是react项目初始化默认没有，这个后面在研究，目前还没有研究好怎么配置。
+
 
 ## webpack配置alias简写文件路径
 执行`npm run eject`命令，生成`config`和`scripts`文件夹，把webpack配置暴露出来，这样我们就可以修改自定义webpack

@@ -81,6 +81,12 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "validate-commit-msg",
+      "pre-commit": "eslint"
+    }
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -150,5 +156,9 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "husky": "^4.3.8",
+    "validate-commit-msg": "^2.14.0"
   }
 }
